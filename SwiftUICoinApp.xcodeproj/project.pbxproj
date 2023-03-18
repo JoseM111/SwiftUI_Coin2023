@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AB2012E629C63477002BFBE8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2012E529C63477002BFBE8 /* HomeView.swift */; };
+		AB2012E829C63DD5002BFBE8 /* TopMoversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2012E729C63DD5002BFBE8 /* TopMoversView.swift */; };
+		AB2012EA29C63DF0002BFBE8 /* TopMoversItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2012E929C63DF0002BFBE8 /* TopMoversItemView.swift */; };
 		ABFE00C229C5575300B0956A /* SwiftUICoinAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE00C129C5575300B0956A /* SwiftUICoinAppApp.swift */; };
 		ABFE00C629C5575500B0956A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABFE00C529C5575500B0956A /* Assets.xcassets */; };
 		ABFE00C929C5575500B0956A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABFE00C829C5575500B0956A /* Preview Assets.xcassets */; };
@@ -15,6 +17,8 @@
 
 /* Begin PBXFileReference section */
 		AB2012E529C63477002BFBE8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AB2012E729C63DD5002BFBE8 /* TopMoversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMoversView.swift; sourceTree = "<group>"; };
+		AB2012E929C63DF0002BFBE8 /* TopMoversItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMoversItemView.swift; sourceTree = "<group>"; };
 		ABFE00BE29C5575300B0956A /* SwiftUICoinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICoinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFE00C129C5575300B0956A /* SwiftUICoinAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICoinAppApp.swift; sourceTree = "<group>"; };
 		ABFE00C529C5575500B0956A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				AB2012E529C63477002BFBE8 /* HomeView.swift */,
+				AB2012E729C63DD5002BFBE8 /* TopMoversView.swift */,
+				AB2012E929C63DF0002BFBE8 /* TopMoversItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,7 +208,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB2012E629C63477002BFBE8 /* HomeView.swift in Sources */,
+				AB2012E829C63DD5002BFBE8 /* TopMoversView.swift in Sources */,
 				ABFE00C229C5575300B0956A /* SwiftUICoinAppApp.swift in Sources */,
+				AB2012EA29C63DF0002BFBE8 /* TopMoversItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
