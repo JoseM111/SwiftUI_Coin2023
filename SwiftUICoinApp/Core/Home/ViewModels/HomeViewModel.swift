@@ -15,9 +15,9 @@ class HomeViewModel: ObservableObject {
     }
     
     func fecthCoinData() -> Void {
-        let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h"
+        let urlString = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h")
         
-        guard let url = URL(string: urlString) else { return }
+        guard let url = urlString else { return }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error {
@@ -39,13 +39,17 @@ class HomeViewModel: ObservableObject {
             }
             
             guard let data = data else { return }
-            // convert the data to `String` to be able to see it better formatted
-            let dataAsString = String(data: data, encoding: .utf8)
             
-            print("DEBUG: Data: \(dataAsString ?? "NO DATA")\n")
+            do {
+                let coinsData = try JSONDecoder().decode([Coin].self, from: data)
+                print("DEBUG: Coins \(coinsData)")
+            } catch let error {
+                print("DEBUG: Failed to decode with error: \(error)")
+            }
         }
         
-        task.resume() // resumes the task if its suspended
+        // resumes the task if its suspended
+        task.resume()
     }
     
 }
