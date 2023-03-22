@@ -8,6 +8,7 @@
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
+    @Published var coins = [Coin]()
     
     init() {
         // will fetch our data whenever a new object of the HomeViewModel is created
@@ -15,9 +16,15 @@ class HomeViewModel: ObservableObject {
     }
     
     func fecthCoinData() -> Void {
-        let urlString = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h")
+        // Define a constant for the URL string
+        let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h"
         
-        guard let url = urlString else { return }
+        guard let urlComponent = URLComponents(string: urlString),
+              let url = urlComponent.url
+        else {
+            print("DEBUG: Invalid URL")
+            return
+        }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error {
@@ -25,6 +32,7 @@ class HomeViewModel: ObservableObject {
                 return // return out of the program if there is an error
             }
             
+            // Check the response status code
             if let response = response as? HTTPURLResponse {
                 let statusMsg =
                 response.statusCode == 200
@@ -38,11 +46,16 @@ class HomeViewModel: ObservableObject {
                     """)
             }
             
-            guard let data = data else { return }
+            // Safely unwrap the received data
+            guard let data = data else {
+                print("DEBUG: No data received")
+                return
+            }
             
             do {
                 let coinsData = try JSONDecoder().decode([Coin].self, from: data)
-                print("DEBUG: Coins \(coinsData)")
+                // print("DEBUG: Coins \(coinsData)")
+                self.coins = coinsData
             } catch let error {
                 print("DEBUG: Failed to decode with error: \(error)")
             }
